@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinay Naraharisetty Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/4d64b1c83a.js" crossorigin="anonymous"></script>
+    <style>
+        /* Global Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Dark and Light Theme Toggle Styles */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .toggle-label {
+            background-color: #ccc;
+            width: 60px;
+            height: 30px;
+            display: flex;
+            border-radius: 50px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-label .ball {
+            background-color: white;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        #darkModeToggle:checked + .toggle-label .ball {
+            transform: translateX(30px);
+        }
+
+        .toggle-label i {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #818181;
+        }
+
+        /* Header */
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: rgb(107, 107, 107); /* Adjust based on your theme */
+        }
+
+        .right ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .right ul li a {
+            text-decoration: none;
+            color: var(--text-color); /* Adjust as needed */
+            font-weight: 500;
+        }
+
+        .hamburger {
+            display: none; /* Show with media query for mobile */
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        header.dark-mode {
+            background-color: #1e1e1e;
+        }
+
+        nav .left {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav .right ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .right ul li a {
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav .right ul li a:hover {
+            background: #e0e0e0;
+        }
+
+        body.dark-theme nav .right ul li a:hover {
+            background: #333;
+        }
+
+        /* Sections */
+        main {
+            padding-top: 80px;
+        }
+
+        section {
+            padding: 60px 50px;
+        }
+
+        /* Home Section */
+        .firstsection {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+
+        .leftsection {
+            flex: 1;
+            font-size: 1.8rem;
+            line-height: 2.5rem;
+        }
+
+        .leftsection .purple {
+            color: #6c63ff;
+            font-weight: 600;
+        }
+
+        #element {
+            font-weight: bold;
+            color: #00bcd4;
+        }
+
+        .rightsection {
+            flex: 1;
+            text-align: center;
+        }
+
+        .rightsection img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* About Section */
+        .secondsection {
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Wrapper for text in about section */
+        .about-text-wrapper { /* Renamed for clarity */
+            max-width: 800px; /* Limit width */
+            margin: 20px auto 0; /* Center the wrapper and add margin */
+            text-align: center; /* Center align text content */
+        }
+
+        .secondsection p {
+            font-size: 1.1rem;
+            margin: 20px auto; /* Adjust margin for paragraph */
+        }
+
+        /* Profile image in About Me section */
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #6c63ff; /* Border around the image */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            display: block; /* Ensure it takes its own line for centering */
+            margin: 0 auto 30px; /* Center and add space below */
+        }
+
+        body.dark-mode .profile-image {
+            border-color: #00bcd4; /* Dark mode border color */
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+        }
+
+        .text-gray {
+            color: gray;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Skills Section */
+        .skillssection {
+            text-align: center;
+        }
+
+        .skills-container {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: left;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark-mode .skill-category {
+            background: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+        }
+
+        .skill-category h2 {
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .skill-category h2 {
+            color: #f1f1f1;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            display: flex; /* Make skill items flex to wrap */
+            flex-wrap: wrap; /* Allow wrapping */
+            gap: 10px; /* Space between skill items */
+        }
+
+        .skill-list li {
+            margin-bottom: 0; /* Remove default li margin */
+        }
+
+        .skill-item {
+            background-color: #e0e0e0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: #333;
+            display: inline-block; /* Treat as inline block for proper spacing within flex container */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .skill-item:hover {
+            background-color: #6c63ff; /* Highlight color on hover */
+            color: #fff;
+            transform: translateY(-3px); /* Subtle lift effect */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        body.dark-mode .skill-item:hover {
+            background-color: #00bcd4; /* Dark mode highlight color on hover */
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+        }
+        
+        /* Certifications Section Styles */
+        .certifications-section {
+            text-align: center;
+        }
+
+        .certifications-grid {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .certification-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content and links to ends */
+        }
+
+        .certification-card.dark-mode {
+            background: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-info {
+            padding: 20px;
+            text-align: left;
+            flex-grow: 1; /* Allows info to take available space */
+        }
+
+        .certification-info h3 {
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .certification-info.dark-mode h3 {
+            color: #f1f1f1;
+        }
+
+        .certification-info p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .certification-info.dark-mode p {
+            color: #ccc;
+        }
+
+        .certification-links {
+            padding: 0 20px 20px; /* Add padding to bottom */
+            text-align: left;
+        }
+
+        .certification-links a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            background-color: #6c63ff;
+            color: #fff;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .certification-links a:hover {
+            background-color: #5649d1;
+        }
+
+        body.dark-theme .certification-links a {
+            background-color: #00bcd4;
+        }
+
+        body.dark-theme .certification-links a:hover {
+            background-color: #008ba3;
+        }
+        
+        /* Projects Section Styles */
+        .projectssection {
+            text-align: center;
+        }
+
+        .projects-grid {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+        }
+
+        .project-card.dark-mode {
+            background: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .project-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .project-info.dark-mode h3{
+            color: #f1f1f1;
+        }
+
+        .project-info p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .project-info.dark-mode p{
+            color: #ccc;
+        }
+
+        .project-links a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            background-color: #6c63ff;
+            color: #fff;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background-color: #5649d1;
+        }
+
+        body.dark-theme .project-links a {
+            background-color: #00bcd4;
+        }
+
+        body.dark-theme .project-links a:hover {
+            background-color: #008ba3;
+        }
+
+        /* Contact Section Styles */
+        .contactsection {
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        /* Updated social links styles for animation */
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #747474;
+            transition: color 0.3s ease, transform 0.3s ease; /* Added transform for smooth scaling */
+        }
+        
+        .social-links a i {
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            color: #6c63ff;
+            transform: scale(1.1); /* Scale up on hover */
+        }
+        
+        body.dark-theme .social-links a {
+            color: #ccc;
+        }
+        
+        body.dark-theme .social-links a:hover {
+            color: #00bcd4;
+            transform: scale(1.1); /* Scale up on hover in dark mode */
+        }
+
+
+        /* Contact Form Styles */
+        .contact-form {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .contact-form h2{
+            transition: color 0.3s ease;
+        }
+
+        .contact-form.dark-mode h2{
+            color: #f1f1f1;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-form.dark-mode label{
+            color:#ccc;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .contact-form.dark-mode input[type="text"],
+        .contact-form.dark-mode input[type="email"],
+        .contact-form.dark-mode textarea {
+            background-color: #333;
+            color: #f1f1f1;
+            border-color: #555;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form button[type="submit"] {
+            background-color: #6c63ff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form button[type="submit"]:hover {
+            background-color: #5649d1;
+        }
+
+        body.dark-theme .contact-form button[type="submit"]:hover {
+            background-color: #008ba3;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Resume Button Specific Styles */
+        .resume-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff; /* A nice blue color */
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .resume-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Subtle lift effect */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        body.dark-mode .resume-button:hover {
+            background-color: #218838; /* Darker green on dark mode hover */
+        }
+
+        /* Responsive */
+        @media (min-width: 769px) { /* Apply flex for larger screens */
+            .about-content-wrapper { /* This wrapper is no longer flex for image-text row */
+                flex-direction: column; /* Ensure it stays column if it was used for that before */
+                align-items: center;
+            }
+            .profile-image {
+                margin-right: auto; /* Ensure centering works for block element */
+                margin-left: auto; /* Ensure centering works for block element */
+                margin-bottom: 30px; /* Space below image before heading */
+            }
+            .about-text-wrapper {
+                text-align: left; /* Align text within wrapper to left on large screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav .right ul {
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                right: 20px;
+                top: 60px;
+                display: none;
+            }
+
+            nav .right ul.show {
+                display: block;
+            }
+
+            header nav .right ul{
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            header nav .right ul li{
+                padding: 8px 0;
+            }
+
+            .firstsection {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .leftsection,
+            .rightsection {
+                flex: unset;
+                width: 100%;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            .theme-toggle {
+                top: 15px;
+                right: 20px;
+            }
+
+            .leftsection {
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+
+            .secondsection p {
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 20px 10px;
+            }
+
+            .skills-container,
+            .certifications-grid, /* Added for responsive grid in certifications */
+            .projects-grid {
+                grid-template-columns: 1fr; /* Stack categories/cards on small screens */
+            }
+            .about-text-wrapper { /* Ensure text remains centered in stacked view on small screens */
+                text-align: center;
+            }
+            .profile-image {
+                margin: 0 auto 30px; /* Ensure image is centered with bottom margin on small screens */
+            }
+        }
+
+        /* Added hamburger menu icon styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        body.dark-theme .bar {
+            background-color: #f1f1f1;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav .right ul {
+                display: none;
+                flex-direction: column;
+                background-color: #fff;
+                position: absolute;
+                top: 80px;
+                right: 10px;
+                left: 10px;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+
+            body.dark-theme nav .right ul {
+                background-color: #1e1e1e;
+            }
+
+            nav .right ul.show {
+                display: flex;
+            }
+
+            nav .right ul li {
+                margin: 10px 0;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            background-color: #f0f0f0;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer.dark-mode {
+            background-color: #1e1e1e;
+            color: #ccc;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="theme-toggle">
+            <input type="checkbox" id="darkModeToggle" style="display: none;" />
+            <label for="darkModeToggle" class="toggle-label">
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+                <i class="fas fa-moon"></i>
+            </label>
+        </div>
+        <nav>
+            <div class="left">Vinay Naraharisetty</div>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstsection" id="home">
+            <div class="leftsection">
+                Hi, I'M <span class="purple">Vinay Naraharisetty</span>,
+                <div>A passionate</div>
+                <span id="element"></span>
+            </div>
+        </section>
+        <section class="secondsection" id="about">
+            <span class="text-gray">What I have done so far</span>
+            <h1>About Me</h1><br><br><br>
+            <!-- Your Profile Photo is now at the top -->
+            <img src="Vinay.png" alt="Vinay Naraharisetty's Profile Photo" class="profile-image">
+            <div class="about-text-wrapper">
+                <p>
+                    I'm Vinay Naraharisetty, a passionate and creative web developer with a strong interest in building modern, user-friendly websites and applications.
+                    I enjoy turning ideas into reality using clean and efficient code.
+                    With skills in HTML, CSS, JavaScript, and React, I love creating visually appealing and functional designs.
+                    When I'm not coding, you’ll find me exploring new technologies, learning about design trends, or working on exciting personal projects.
+                    I'm always eager to take on new challenges and grow both personally and professionally.
+                </p>
+            </div>
+            
+            <a href="Resume.docx" target="_blank" class="resume-button">View Resume</a>
+        </section><br><br><br><br><br><br>
+        
+        <section class="skillssection" id="skills">
+            <span class="text-gray">My Expertise</span>
+            <h1>Skills</h1>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h2>Technical Skills</h2>
+                    <ul class="skill-list">
+                        <li><div class="skill-item">HTML & CSS</div></li>
+                        <li><div class="skill-item">JavaScript (ES6+)</div></li>
+                        <li><div class="skill-item">React.js</div></li>
+                        <li><div class="skill-item">Node.js</div></li>
+                        <li><div class="skill-item">Git & GitHub</div></li>
+                        <li><div class="skill-item">Figma (UI/UX Design)</div></li>
+                        <li><div class="skill-item">Bootstrap</div></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h2>Soft Skills</h2>
+                    <ul class="skill-list">
+                        <li><div class="skill-item">Problem-Solving</div></li>
+                        <li><div class="skill-item">Effective Communication</div></li>
+                        <li><div class="skill-item">Team Collaboration</div></li>
+                        <li><div class="skill-item">Adaptability</div></li>
+                        <li><div class="skill-item">Time Management</div></li>
+                    </ul><br>
+                    <h2>Languages</h2>
+                    <ul class="skill-list">
+                        <li><div class="skill-item">English (Fluent)</div></li>
+                        <li><div class="skill-item">Hindi (Proficient)</div></li>
+                        <li><div class="skill-item">Telugu (Native)</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section><br><br>
+
+        
+        <section class="certifications-section" id="certifications">
+            <span class="text-gray">My Achievements</span>
+            <h1>Certifications</h1>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3>Certificate of Intership</h3>
+                        <p>Issued by AICTE IDEALab Bhimavaram<br>Date: May 10, 2024</p>
+                    </div>
+                    <div class="certification-links">
+                        <a href="Certificate.jpeg" target="_blank">View </a>
+                    </div>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3>Responsive Web Design</h3>
+                        <p>Issued by freeCodeCamp<br>Date: February 22, 2025</p>
+                    </div>
+                    <div class="certification-links">
+                        <a href="IMG-20250222-WA0003.jpg" target="_blank">View </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section><br><br>
+
+        <section class="projectssection" id="projects">
+            <span class="text-gray">Some Things I've Built</span>
+            <h1>Projects</h1>
+            <div class="projects-grid">
+                <div class="project-card">
+                    
+                    <img src="Vacation.png" alt="Vacation Booking Website">
+                    <div class="project-info">
+                        <h3>Pack Your Bags — Vacation Booking Website</h3>
+                        <p>A responsive travel booking platform that helps users explore destinations, view travel packages, and make bookings using React.js, HTML, CSS, JavaScript.</p>
+                        <div class="project-links">
+                            <a href="https://pack-your-bags-website.netlify.app/">View Live</a>
+                            <a href="https://github.com/NARAHARISETTYVINAY/Vacation-Booking-Website" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    
+                    <img src="Restaurant.png" alt="Restaurant Website">
+                    <div class="project-info">
+                        <h3>Foooddiee - Restaurant Website</h3><br>
+                        <p>An advanced, visually engaging restaurant-themed website with dynamic menus and user interaction features using HTML, CSS, JavaScript, Bootstrap.</p>
+                        <div class="project-links">
+                            <a href="https://foodddieee-site.netlify.app/">View Live</a>
+                            <a href="https://github.com/NARAHARISETTYVINAY/restaurant-website" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    
+                    <img src="WhatsApp.png" alt="WhatsApp UI Clone">
+                    <div class="project-info">
+                        <h3>WhatsApp UI Clone</h3><br>
+                        <p>A high-fidelity user interface clone of WhatsApp, designed entirely in Figma to closely replicate structure, interactions, and user experience of original app.</p>
+                        <div class="project-links">
+                            <a href="https://www.figma.com/proto/bPbuCW2dXsopmZctWogLNb/WhatsApp-UI?page-id=0%3A1&node-id=3-20&p=f&viewport=215%2C326%2C0.09&t=Q2iWa2yYUea3fvCY-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2">View Live</a>
+                            <a href="https://www.figma.com/design/bPbuCW2dXsopmZctWogLNb/WhatsApp-UI?node-id=0-1&t=MtoPLsjaEFfruOSS-1" target="_blank">Figma</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><br><br>
+
+
+        <section class="contactsection" id="contact">
+            <span class="text-gray">Get In Touch</span>
+            <h1>Contact Me</h1><br><br>
+            <div class="contact-details">
+                <p>I'm always open to new opportunities and collaborations.</p>
+
+                <p>Looking forward to hearing from you!</p><br><br>
+            </div>
+            <div class="contact-form">
+                <h2>Send a Message</h2>
+               
+                <form id="contactForm" action="https://formspree.io/f/mdkzeodz" method="POST">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <input type="hidden" name="_next" value="https://your-portfolio-live-url.com/#contact">
+                    <button type="submit">Send Message</button>
+                </form>
+                <div id="formMessage" class="form-message"></div>
+            </div>
+        </section>
+        <div class="social-links">
+            <a href="mailto:vinaynaraharisetty@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Mail</a>|
+            <a href="https://www.linkedin.com/in/vinay-naraharisetty-298677325" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>|
+            <a href="https://github.com/NARAHARISETTYVINAY" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+
+    </main>
+    <footer>
+        <p>© 2025 Vinay Naraharisetty. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+       
+        const toggle = document.getElementById("darkModeToggle");
+        const header = document.querySelector("header");
+        const projectCards = document.querySelectorAll(".project-card");
+        const contactForm = document.querySelector(".contact-form");
+        const footer = document.querySelector("footer");
+        const projectInfo = document.querySelectorAll(".project-info");
+       
+        const certificationCards = document.querySelectorAll(".certification-card");
+        const certificationInfo = document.querySelectorAll(".certification-info");
+
+
+        /**
+         * Applies dark mode styling to various elements by adding 'dark-mode' class.
+         * Stores the theme preference in local storage.
+         */
+        function applyDarkMode() {
+            document.body.classList.add("dark-mode");
+            header.classList.add("dark-mode");
+            projectCards.forEach(card => card.classList.add("dark-mode"));
+            contactForm.classList.add("dark-mode");
+            footer.classList.add("dark-mode");
+            projectInfo.forEach(info => info.classList.add("dark-mode"));
+            document.querySelectorAll(".skill-category").forEach(cat => cat.classList.add("dark-mode"));
+            
+            certificationCards.forEach(card => card.classList.add("dark-mode"));
+            certificationInfo.forEach(info => info.classList.add("dark-mode"));
+            localStorage.setItem("theme", "dark");
+        }
+
+        /**
+         * Removes dark mode styling from various elements.
+         * Stores the theme preference in local storage.
+         */
+        function removeDarkMode() {
+            document.body.classList.remove("dark-mode");
+            header.classList.remove("dark-mode");
+            projectCards.forEach(card => card.classList.remove("dark-mode"));
+            contactForm.classList.remove("dark-mode");
+            footer.classList.remove("dark-mode");
+            projectInfo.forEach(info => info.classList.remove("dark-mode"));
+            document.querySelectorAll(".skill-category").forEach(cat => cat.classList.remove("dark-mode"));
+            // Remove dark mode from new certification elements
+            certificationCards.forEach(card => card.classList.remove("dark-mode"));
+            certificationInfo.forEach(info => info.classList.remove("dark-mode"));
+            localStorage.setItem("theme", "light");
+        }
+
+        // Load saved theme preference on page load
+        if (localStorage.getItem("theme") === "dark") {
+            applyDarkMode();
+            toggle.checked = true; // Set toggle to checked if dark mode is active
+        }
+
+        // Add event listener to the dark mode toggle switch
+        toggle.addEventListener("change", () => {
+            if (toggle.checked) {
+                applyDarkMode();
+            } else {
+                removeDarkMode();
+            }
+        });
+
+        // Initialize Typed.js for dynamic text animation in the home section
+        const typed = new Typed("#element", {
+            strings: ["Web Developer", "UI/UX Designer", "Frontend Enthusiast"],
+            typeSpeed: 50,
+            loop: true,
+        });
+
+        // Get references for the hamburger menu
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".right ul");
+        const navLinks = navMenu.querySelectorAll("a");
+
+        // Toggle hamburger menu and navigation visibility on click
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("show");
+        });
+
+        // Add event listeners to navigation links for smooth scrolling and menu closing
+        navLinks.forEach(link => {
+            link.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent default link behavior
+
+                // Get the target section ID from the href attribute
+                const targetId = link.getAttribute("href").substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                // Scroll to the target section smoothly
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+
+                // Close the mobile menu if the screen width is less than 768px
+                if (window.innerWidth < 768) {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("show");
+                }
+            });
+        });
+
+        // Handle contact form submission
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+
+            contactForm.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formMessage.classList.remove('error');
+                    formMessage.classList.add('success');
+                    formMessage.textContent = 'Message sent successfully!';
+                    contactForm.reset(); // Clear the form
+                } else {
+                    formMessage.classList.remove('success');
+                    formMessage.classList.add('error');
+                    formMessage.textContent = 'Oops! There was an error sending your message.';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
