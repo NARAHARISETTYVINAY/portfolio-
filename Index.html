@@ -90,7 +90,7 @@
         .left {
             font-size: 1.5rem;
             font-weight: bold;
-            color: rgb(107, 107, 107); /* Adjust based on your theme */
+            color: rgb(107, 107, 107);
         }
 
         .right ul {
@@ -103,12 +103,12 @@
 
         .right ul li a {
             text-decoration: none;
-            color: var(--text-color); /* Adjust as needed */
+            color: var(--text-color);
             font-weight: 500;
         }
 
         .hamburger {
-            display: none; /* Show with media query for mobile */
+            display: none;
         }
 
         header {
@@ -153,6 +153,7 @@
         body.dark-theme nav .right ul li a:hover {
             background: #333;
         }
+
 
         /* Sections */
         main {
@@ -205,35 +206,17 @@
             line-height: 1.6;
         }
 
-        /* Wrapper for text in about section */
-        .about-text-wrapper { /* Renamed for clarity */
-            max-width: 800px; /* Limit width */
-            margin: 20px auto 0; /* Center the wrapper and add margin */
-            text-align: center; /* Center align text content */
+        .about-text-wrapper {
+            max-width: 800px;
+            margin: 20px auto 0;
+            text-align: center;
         }
 
         .secondsection p {
             font-size: 1.1rem;
-            margin: 20px auto; /* Adjust margin for paragraph */
+            margin: 20px auto;
         }
 
-        /* Profile image in About Me section */
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #6c63ff; /* Border around the image */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            display: block; /* Ensure it takes its own line for centering */
-            margin: 0 auto 30px; /* Center and add space below */
-        }
-
-        body.dark-mode .profile-image {
-            border-color: #00bcd4; /* Dark mode border color */
-            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
-        }
 
         .text-gray {
             color: gray;
@@ -280,16 +263,61 @@
             color: #f1f1f1;
         }
 
+        /*Technical Skills Grid */
+        .technical-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .skill-card {
+            background-color: #e8e8e8;
+            border-radius: 12px;
+            padding: 15px 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dark-mode .skill-card {
+            background-color: #2b2b2b;
+            color: #f1f1f1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card svg {
+            width: 45px;
+            height: 45px;
+            fill: currentColor;
+        }
+
+        .skill-card .skill-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         .skill-list {
             list-style: none;
             padding: 0;
-            display: flex; /* Make skill items flex to wrap */
-            flex-wrap: wrap; /* Allow wrapping */
-            gap: 10px; /* Space between skill items */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .skill-list li {
-            margin-bottom: 0; /* Remove default li margin */
+            margin-bottom: 0;
         }
 
         .skill-item {
@@ -298,25 +326,27 @@
             border-radius: 20px;
             font-size: 0.95rem;
             color: #333;
-            display: inline-block; /* Treat as inline block for proper spacing within flex container */
+            display: flex;
+            align-items: center;
+            gap: 8px;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .skill-item:hover {
-            background-color: #6c63ff; /* Highlight color on hover */
+            background-color: #6c63ff;
             color: #fff;
-            transform: translateY(-3px); /* Subtle lift effect */
+            transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         body.dark-mode .skill-item:hover {
-            background-color: #00bcd4; /* Dark mode highlight color on hover */
+            background-color: #00bcd4;
             color: #fff;
             transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(255,255,255,0.2);
         }
-        
+
         /* Certifications Section Styles */
         .certifications-section {
             text-align: center;
@@ -339,7 +369,7 @@
             transition: transform 0.3s ease-in-out, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Pushes content and links to ends */
+            justify-content: space-between;
         }
 
         .certification-card.dark-mode {
@@ -348,13 +378,13 @@
         }
 
         .certification-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-15px);
         }
 
         .certification-info {
             padding: 20px;
             text-align: left;
-            flex-grow: 1; /* Allows info to take available space */
+            flex-grow: 1;
         }
 
         .certification-info h3 {
@@ -381,7 +411,7 @@
         }
 
         .certification-links {
-            padding: 0 20px 20px; /* Add padding to bottom */
+            padding: 0 20px 20px;
             text-align: left;
         }
 
@@ -408,8 +438,8 @@
         body.dark-theme .certification-links a:hover {
             background-color: #008ba3;
         }
-        
-        /* Projects Section Styles */
+
+        /* Projects Section */
         .projectssection {
             text-align: center;
         }
@@ -437,7 +467,7 @@
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-15px);
         }
 
         .project-card img {
@@ -502,7 +532,7 @@
         .contactsection {
             text-align: center;
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
@@ -510,8 +540,7 @@
             margin-top: 30px;
             flex-wrap: wrap;
         }
-        
-        /* Updated social links styles for animation */
+
         .social-links a {
             display: flex;
             align-items: center;
@@ -519,25 +548,25 @@
             font-size: 1rem;
             font-weight: 500;
             color: #747474;
-            transition: color 0.3s ease, transform 0.3s ease; /* Added transform for smooth scaling */
+            transition: color 0.3s ease, transform 0.3s ease;
         }
-        
+
         .social-links a i {
             font-size: 1.2rem;
         }
-        
+
         .social-links a:hover {
             color: #6c63ff;
-            transform: scale(1.1); /* Scale up on hover */
+            transform: scale(1.3);
         }
-        
+
         body.dark-theme .social-links a {
             color: #ccc;
         }
-        
+
         body.dark-theme .social-links a:hover {
             color: #00bcd4;
-            transform: scale(1.1); /* Scale up on hover in dark mode */
+            transform: scale(1.3);
         }
 
 
@@ -545,10 +574,22 @@
         .contact-form {
             margin-top: 30px;
             text-align: left;
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-form h2{
             transition: color 0.3s ease;
+        }
+
+        .contact-form.dark-mode {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
         }
 
         .contact-form.dark-mode h2{
@@ -640,18 +681,19 @@
             display: inline-block;
             padding: 10px 20px;
             margin-top: 20px;
-            background-color: #007bff; /* A nice blue color */
+            background-color: #007bff;
             color: white;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 500;
             transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: pulse-glow 2s infinite;
         }
 
         .resume-button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-            transform: translateY(-2px); /* Subtle lift effect */
+            background-color: #0056b3;
+            transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
@@ -659,19 +701,35 @@
             background-color: #218838; /* Darker green on dark mode hover */
         }
 
+        /* Pulse Animation Keyframes */
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+            }
+        }
+
         /* Responsive */
-        @media (min-width: 769px) { /* Apply flex for larger screens */
-            .about-content-wrapper { /* This wrapper is no longer flex for image-text row */
-                flex-direction: column; /* Ensure it stays column if it was used for that before */
+        @media (min-width: 769px) {
+            .about-content-wrapper {
+                flex-direction: column;
                 align-items: center;
             }
             .profile-image {
-                margin-right: auto; /* Ensure centering works for block element */
-                margin-left: auto; /* Ensure centering works for block element */
-                margin-bottom: 30px; /* Space below image before heading */
+                margin-right: auto;
+                margin-left: auto;
+                margin-bottom: 30px;
             }
             .about-text-wrapper {
-                text-align: left; /* Align text within wrapper to left on large screens */
+                text-align: left;
             }
         }
 
@@ -683,6 +741,11 @@
                 right: 20px;
                 top: 60px;
                 display: none;
+            }
+
+            .left {
+                font-size: 1.2rem;
+                white-space: nowrap;
             }
 
             nav .right ul.show {
@@ -739,19 +802,16 @@
             }
 
             .skills-container,
-            .certifications-grid, /* Added for responsive grid in certifications */
+            .certifications-grid,
             .projects-grid {
-                grid-template-columns: 1fr; /* Stack categories/cards on small screens */
+                grid-template-columns: 1fr;
             }
-            .about-text-wrapper { /* Ensure text remains centered in stacked view on small screens */
+            .about-text-wrapper {
                 text-align: center;
             }
-            .profile-image {
-                margin: 0 auto 30px; /* Ensure image is centered with bottom margin on small screens */
-            }
+
         }
 
-        /* Added hamburger menu icon styles */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -831,7 +891,7 @@
             background-color: #1e1e1e;
             color: #ccc;
         }
-        
+
     </style>
 </head>
 <body>
@@ -874,6 +934,7 @@
         <section class="secondsection" id="about">
             <span class="text-gray">What I have done so far</span>
             <h1>About Me</h1><br><br><br>
+
             <div class="about-text-wrapper">
                 <p>
                     I'm Vinay Naraharisetty, a passionate and creative web developer with a strong interest in building modern, user-friendly websites and applications.
@@ -883,25 +944,76 @@
                     I'm always eager to take on new challenges and grow both personally and professionally.
                 </p>
             </div>
-            
+
             <a href="Resume.docx" target="_blank" class="resume-button">View Resume</a>
         </section><br><br><br><br><br><br>
-        
+
         <section class="skillssection" id="skills">
             <span class="text-gray">My Expertise</span>
             <h1>Skills</h1>
             <div class="skills-container">
                 <div class="skill-category">
                     <h2>Technical Skills</h2>
-                    <ul class="skill-list">
-                        <li><div class="skill-item">HTML & CSS</div></li>
-                        <li><div class="skill-item">JavaScript (ES6+)</div></li>
-                        <li><div class="skill-item">React.js</div></li>
-                        <li><div class="skill-item">Node.js</div></li>
-                        <li><div class="skill-item">Git & GitHub</div></li>
-                        <li><div class="skill-item">Figma (UI/UX Design)</div></li>
-                        <li><div class="skill-item">Bootstrap</div></li>
-                    </ul>
+                    <div class="technical-skills-grid">
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#E34F26">
+                                <title>HTML5</title>
+                                <path d="M1.5 0l2.671 2.946L6.5 24l.11-.6L12 21.034l5.39-2.566.11.6L22.5 0H1.5zm16.92 18.258l-5.39 2.566-5.39-2.566.27-1.18 5.12 2.443 5.12-2.443.27 1.18zM6.5 12h5.5l.39 1.748L12 14.881l5.12-2.443.27 1.18L12 16.278l-5.12-2.443-.27 1.18L6.5 12z"/>
+                            </svg>
+                            <div class="skill-name">HTML</div>
+                        </div>
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#1572B6">
+                                <title>CSS3</title>
+                                <path d="M1.5 0l2.671 2.946L6.5 24l.11-.6L12 21.034l5.39-2.566.11.6L22.5 0H1.5zm16.92 18.258l-5.39 2.566-5.39-2.566.27-1.18 5.12 2.443 5.12-2.443.27 1.18zM6.5 12h5.5l.39 1.748L12 14.881l5.12-2.443.27 1.18L12 16.278l-5.12-2.443-.27 1.18L6.5 12z"/>
+                            </svg>
+                            <div class="skill-name">CSS</div>
+                        </div>
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#F7DF1E">
+                                <title>JavaScript</title>
+                                <path d="M12.001 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.868 18.068c-.732.176-1.637-.621-1.611-1.611-.027-.99 1.34-2.444 2.115-3.238.995-.99 2.553-2.617 2.479-3.411-.073-.794-.978-1.526-2.091-1.428-1.113.098-1.907.729-2.005 1.523-.099.794.634 1.794 1.366 2.589.732.794 1.526 1.588 1.428 2.382-.098.794-.903 1.288-1.523 1.485zm7.332-1.905c-.658.175-1.453-.62-1.427-1.61-.026-.99 1.34-2.444 2.115-3.238.995-.99 2.553-2.617 2.479-3.411-.073-.794-.978-1.526-2.091-1.428-1.113.098-1.907.729-2.005 1.523-.099.794.634 1.794 1.366 2.589.732.794 1.526 1.588 1.428 2.382-.098.794-.903 1.288-1.523 1.485z"/>
+                            </svg>
+                            <div class="skill-name">JavaScript</div>
+                        </div>
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#61DAFB">
+                                <title>React</title>
+                                <path d="M12 2.3c-5.3 0-9.6 4.3-9.6 9.6s4.3 9.6 9.6 9.6 9.6-4.3 9.6-9.6-4.3-9.6-9.6-9.6zm4.6 15.6l-.3.2c-1.2.9-2.6 1.4-4.3 1.4-1.7 0-3.1-.5-4.3-1.4l-.3-.2.3-.2c1.2-.9 2.6-1.4 4.3-1.4 1.7 0 3.1.5 4.3 1.4l.3.2zm-4.6-13.6c-1.7 0-3.1.5-4.3 1.4l-.3.2.3.2c1.2.9 2.6 1.4 4.3 1.4 1.7 0 3.1-.5 4.3-1.4l.3-.2-.3-.2c-1.2-.9-2.6-1.4-4.3-1.4zM2.5 12c0-.5.2-1.1.5-1.6l.2-.2.2.2c1.3 1.2 3 1.8 4.7 1.8 1.7 0 3.3-.6 4.7-1.8l.2-.2.2.2c1.3 1.2 3 1.8 4.7 1.8 1.7 0 3.3-.6 4.7-1.8l.2-.2.2.2c.3.5.5 1.1.5 1.6 0 5.3-4.3 9.6-9.6 9.6S2.5 17.3 2.5 12z"/>
+                            </svg>
+                            <div class="skill-name">React.js</div>
+                        </div>
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#092E20">
+                                <title>Django</title>
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.187 6.002h-4.67c-1.928 0-3.417 1.558-3.417 3.486 0 1.927 1.489 3.486 3.417 3.486h1.27l-1.396 3.023h-2.138l2.433-5.286c-1.01-.225-1.656-.667-2.185-1.393-.529-.726-.74-1.644-.74-2.883 0-2.457 2.222-4.433 5.432-4.433h4.636l-.371 1.764zm-1.27 7.91h-3.447c-1.309 0-2.28-1.074-2.28-2.392 0-1.317.971-2.392 2.28-2.392h3.447l-.39 2.392z"/>
+                            </svg>
+                            <div class="skill-name">Django</div>
+                        </div>
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#F05033">
+                                <title>Git</title>
+                                <path d="M12.001 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.727 19.314c-.663-.663-1.696-1.127-2.727-1.127-1.031 0-2.064.464-2.727 1.127-.663-.663-1.696-1.127-2.727-1.127-1.031 0-2.064.464-2.727 1.127-.663-.663-1.696-1.127-2.727-1.127-1.031 0-2.064.464-2.727 1.127l10.827-10.827c.663-.663 1.696-1.127 2.727-1.127 1.031 0 2.064.464 2.727 1.127l1.364-1.364c.548-.548 1.433-.548 1.981 0l3.033 3.033c.548.548.548 1.433 0 1.981l-1.364 1.364c.663.663 1.127 1.696 1.127 2.727 0 1.031-.464 2.064-1.127 2.727l-1.364 1.364zm-5.727-8.314c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm6 6c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"/>
+                            </svg>
+                            <div class="skill-name">Git & GitHub</div>
+                        </div>
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <title>Figma</title>
+                                <path d="M12 3a3 3 0 110-6 3 3 0 010 6zm0 3a3 3 0 110-6 3 3 0 010 6zm0 3a3 3 0 110-6 3 3 0 010 6zm-3 3a3 3 0 11-6 0 3 3 0 016 0zm-3 3a3 3 0 11-6 0 3 3 0 016 0zm-3 3a3 3 0 11-6 0 3 3 0 016 0zm-3 3a3 3 0 11-6 0 3 3 0 016 0zm3 3a3 3 0 110-6 3 3 0 010 6zm3-3a3 3 0 110-6 3 3 0 010 6zm3-3a3 3 0 110-6 3 3 0 010 6zm3-3a3 3 0 110-6 3 3 0 010 6zm3-3a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path d="M12 21a9 9 0 01-9-9H0a12 12 0 0012 12V21zM21 12a9 9 0 01-9 9v3a12 12 0 0012-12h-3zM24 12a12 12 0 00-12-12v3a9 9 0 019 9h3z" />
+                            </svg>
+                            <div class="skill-name">Figma</div>
+                        </div>
+                        <div class="skill-card">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#7952B3">
+                                <title>Bootstrap</title>
+                                <path d="M2.57 2.115l9.43 19.865 9.43-19.865H2.57zm1.189 1.442l7.732 16.326L19.46 3.557H3.759zM9.423 9.423l2.577 5.434 2.577-5.434H9.423zm-5.617 10.368l2.91 6.134H0L3.806 19.791z"/>
+                                <path d="M12.001 24l-3.337-7.037L5.786 24h12.428l-2.878-6.037z"/>
+                            </svg>
+                            <div class="skill-name">Bootstrap</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="skill-category">
                     <h2>Soft Skills</h2>
@@ -922,7 +1034,7 @@
             </div>
         </section><br><br>
 
-        
+
         <section class="certifications-section" id="certifications">
             <span class="text-gray">My Achievements</span>
             <h1>Certifications</h1>
@@ -931,18 +1043,21 @@
                     <div class="certification-info">
                         <h3>Certificate of Intership</h3>
                         <p>Issued by AICTE IDEALab Bhimavaram<br>Date: May 10, 2024</p>
-                    </div>
-                    <div class="certification-links">
-                        <a href="Certificate.jpeg" target="_blank">View </a>
+
+                        <div class="certification-links">
+                            <a href="Certificate.jpeg" target="_blank">View </a>
+                        </div>
                     </div>
                 </div>
+
                 <div class="certification-card">
                     <div class="certification-info">
                         <h3>Responsive Web Design</h3>
                         <p>Issued by freeCodeCamp<br>Date: February 22, 2025</p>
-                    </div>
-                    <div class="certification-links">
-                        <a href="IMG-20250222-WA0003.jpg" target="_blank">View </a>
+
+                        <div class="certification-links">
+                            <a href="IMG-20250222-WA0003.jpg" target="_blank">View </a>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -954,7 +1069,7 @@
             <h1>Projects</h1>
             <div class="projects-grid">
                 <div class="project-card">
-                    
+
                     <img src="Vacation.png" alt="Vacation Booking Website">
                     <div class="project-info">
                         <h3>Pack Your Bags — Vacation Booking Website</h3>
@@ -966,7 +1081,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    
+
                     <img src="Restaurant.png" alt="Restaurant Website">
                     <div class="project-info">
                         <h3>Foooddiee - Restaurant Website</h3><br>
@@ -978,7 +1093,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    
+
                     <img src="WhatsApp.png" alt="WhatsApp UI Clone">
                     <div class="project-info">
                         <h3>WhatsApp UI Clone</h3><br>
@@ -991,8 +1106,8 @@
                 </div>
             </div>
         </section><br><br>
-
-
+    </main>
+    <footer>
         <section class="contactsection" id="contact">
             <span class="text-gray">Get In Touch</span>
             <h1>Contact Me</h1><br><br>
@@ -1003,7 +1118,7 @@
             </div>
             <div class="contact-form">
                 <h2>Send a Message</h2>
-               
+
                 <form id="contactForm" action="https://formspree.io/f/mdkzeodz" method="POST">
                     <label for="name">Your Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -1011,7 +1126,7 @@
                     <input type="email" id="email" name="email" required>
                     <label for="message">Your Message:</label>
                     <textarea id="message" name="message" required></textarea>
-                    
+
                     <input type="hidden" name="_next" value="https://your-portfolio-live-url.com/#contact">
                     <button type="submit">Send Message</button>
                 </form>
@@ -1022,22 +1137,20 @@
             <a href="mailto:vinaynaraharisetty@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Mail</a>|
             <a href="https://www.linkedin.com/in/vinay-naraharisetty-298677325" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>|
             <a href="https://github.com/NARAHARISETTYVINAY" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        </div>
+        </div><br>
 
-    </main>
-    <footer>
         <p>© 2025 Vinay Naraharisetty. All rights reserved.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-       
+
         const toggle = document.getElementById("darkModeToggle");
         const header = document.querySelector("header");
         const projectCards = document.querySelectorAll(".project-card");
         const contactForm = document.querySelector(".contact-form");
         const footer = document.querySelector("footer");
         const projectInfo = document.querySelectorAll(".project-info");
-       
+
         const certificationCards = document.querySelectorAll(".certification-card");
         const certificationInfo = document.querySelectorAll(".certification-info");
 
@@ -1054,7 +1167,8 @@
             footer.classList.add("dark-mode");
             projectInfo.forEach(info => info.classList.add("dark-mode"));
             document.querySelectorAll(".skill-category").forEach(cat => cat.classList.add("dark-mode"));
-            
+            document.querySelectorAll(".skill-card").forEach(card => card.classList.add("dark-mode"));
+
             certificationCards.forEach(card => card.classList.add("dark-mode"));
             certificationInfo.forEach(info => info.classList.add("dark-mode"));
             localStorage.setItem("theme", "dark");
@@ -1072,6 +1186,7 @@
             footer.classList.remove("dark-mode");
             projectInfo.forEach(info => info.classList.remove("dark-mode"));
             document.querySelectorAll(".skill-category").forEach(cat => cat.classList.remove("dark-mode"));
+            document.querySelectorAll(".skill-card").forEach(card => card.classList.remove("dark-mode"));
             // Remove dark mode from new certification elements
             certificationCards.forEach(card => card.classList.remove("dark-mode"));
             certificationInfo.forEach(info => info.classList.remove("dark-mode"));
@@ -1114,7 +1229,14 @@
         // Add event listeners to navigation links for smooth scrolling and menu closing
         navLinks.forEach(link => {
             link.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevent default link behavior
+                // Check if the link is the resume button
+                if (link.classList.contains('nav-resume-button')) {
+                    // Do not prevent default behavior for the resume button
+                    // as it should open in a new tab
+                    return;
+                }
+
+                event.preventDefault(); // Prevent default link behavior for other links
 
                 // Get the target section ID from the href attribute
                 const targetId = link.getAttribute("href").substring(1);
@@ -1156,7 +1278,7 @@
                     formMessage.classList.remove('error');
                     formMessage.classList.add('success');
                     formMessage.textContent = 'Message sent successfully!';
-                    contactForm.reset(); // Clear the form
+                    contactForm.reset();
                 } else {
                     formMessage.classList.remove('success');
                     formMessage.classList.add('error');
